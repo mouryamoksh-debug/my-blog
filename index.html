@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+‎<html lang="en">
+‎<head>
+‎    <meta charset="UTF-8">
+‎    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+‎    <title>Simple Blog</title>
+‎    <style>
+‎        * {
+‎            box-sizing: border-box;
+‎            margin: 0;
+‎            padding: 0;
+‎        }
+‎        body {
+‎            font-family: Arial, sans-serif;
+‎            line-height: 1.6;
+‎            color: #333;
+‎            background-color: #f4f4f4;
+‎            display: flex;
+‎            flex-direction: column;
+‎            min-height: 100vh;
+‎        }
+‎        header {
+‎            background-color: #333;
+‎            color: #fff;
+‎            text-align: center;
+‎            padding: 1rem;
+‎        }
+‎        header h1 {
+‎            font-size: 2rem;
+‎        }
+‎        main {
+‎            flex: 1;
+‎            max-width: 800px;
+‎            margin: 0 auto;
+‎            padding: 1rem;
+‎            background-color: #fff;
+‎            box-shadow: 0 0 10px rgba(0,0,0,0.1);
+‎        }
+‎        .blog-post {
+‎            margin-bottom: 2rem;
+‎        }
+‎        .blog-post h2 {
+‎            font-size: 1.5rem;
+‎            margin-bottom: 0.5rem;
+‎        }
+‎        .blog-post .date {
+‎            color: #666;
+‎            font-size: 0.9rem;
+‎            margin-bottom: 1rem;
+‎        }
+‎        .blog-post p {
+‎            margin-bottom: 1rem;
+‎        }
+‎        footer {
+‎            text-align: center;
+‎            padding: 1rem;
+‎            background-color: #333;
+‎            color: #fff;
+‎        }
+‎        @media (max-width: 600px) {
+‎            header h1 {
+‎                font-size: 1.5rem;
+‎            }
+‎            main {
+‎                padding: 0.5rem;
+‎            }
+‎        }
+‎    </style>
+‎</head>
+‎<body>
+‎    <header>
+‎        <h1>My Simple Blog</h1>
+‎    </header>
+‎    <main>
+‎        <article class="blog-post">
+‎            <h2>Welcome to My Blog</h2>
+‎            <p class="date">Posted on October 10, 2023</p>
+‎            <p>This is the first post on my simple blog. I'm excited to share my thoughts and experiences here. Blogs are a great way to connect with others and document life's journey.</p>
+‎            <p>In this post, I'll talk about the importance of simplicity in design. Keeping things clean and straightforward helps users focus on the content without distractions.</p>
+‎            <p>Stay tuned for more posts!</p>
+‎        </article>
+‎    </main>
+‎    <footer>
+‎        <p>&copy; 2023 My Simple Blog</p>
+‎    </footer>
+‎</body>
+‎</html>
