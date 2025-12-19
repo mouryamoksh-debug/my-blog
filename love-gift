@@ -1,0 +1,191 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>For You ❤️</title>
+
+<style>
+body {
+    margin: 0;
+    background: black;
+    color: #00ffcc;
+    font-family: "Courier New", monospace;
+    overflow: hidden;
+}
+
+.container {
+    padding: 20px;
+    font-size: 18px;
+    max-width: 900px;
+}
+
+.cursor {
+    display: inline-block;
+    width: 10px;
+    background: #00ffcc;
+    animation: blink 1s infinite;
+}
+
+@keyframes blink {
+    50% { opacity: 0; }
+}
+
+.heart {
+    position: absolute;
+    color: #ff4d6d;
+    animation: floatUp 8s linear infinite;
+}
+
+@keyframes floatUp {
+    from { transform: translateY(100vh); opacity: 1; }
+    to { transform: translateY(-10vh); opacity: 0; }
+}
+
+.locked, .final {
+    position: fixed;
+    inset: 0;
+    background: black;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    padding: 20px;
+}
+
+.locked {
+    color: #888;
+    font-size: 22px;
+}
+
+.final {
+    display: none;
+    color: #ff4d6d;
+    font-size: 38px;
+    animation: fadeIn 3s forwards;
+}
+
+@keyframes fadeIn {
+    from { opacity: 0; }
+    to { opacity: 1; }
+}
+
+button {
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    background: transparent;
+    border: 1px solid #00ffcc;
+    color: #00ffcc;
+    padding: 8px 14px;
+    cursor: pointer;
+}
+</style>
+</head>
+
+<body>
+
+<div class="container">
+<pre id="text"></pre><span class="cursor"></span>
+</div>
+
+<div class="locked" id="locked">
+🔒 This message is locked.<br><br>
+It will unlock on<br>
+<b>3 June 2026, 12:00 AM</b><br><br>
+Some things are worth waiting for ❤️
+</div>
+
+<div class="final" id="final">
+Happy Birthday ❤️<br><br>
+You are not a chapter in my life.<br>
+You are the story itself.<br><br>
+<span style="font-size:18px;">
+I didn’t buy this gift.<br>
+I waited, I learned, I wrote it — for you 🌹
+</span>
+</div>
+
+<button onclick="toggleMusic()">🔊 Music</button>
+
+<audio id="bgm" loop>
+<source src="https://cdn.pixabay.com/audio/2022/10/25/audio_946b1b3c3e.mp3" type="audio/mpeg">
+</audio>
+
+<script>
+/* ===== CUSTOMIZE ===== */
+const herName = "HER NAME ❤️";
+const unlockTime = new Date("2026-06-03T00:00:00");
+/* ==================== */
+
+const message = `
+Initializing love.exe...
+
+Accessing heart...
+
+User found: ${herName}
+
+Encrypting feelings...
+
+while (time < "03-06-2026") {
+    wait();
+    love("${miya}");
+}
+
+System message:
+Some feelings should not be rushed.
+`;
+
+let i = 0;
+const speed = 45;
+const textEl = document.getElementById("text");
+
+function typeWriter() {
+    if (i < message.length) {
+        textEl.innerHTML += message.charAt(i);
+        i++;
+        setTimeout(typeWriter, speed);
+    }
+}
+
+typeWriter();
+
+// floating hearts
+setInterval(() => {
+    const heart = document.createElement("div");
+    heart.className = "heart";
+    heart.innerHTML = "❤️";
+    heart.style.left = Math.random() * 100 + "vw";
+    heart.style.fontSize = (12 + Math.random() * 24) + "px";
+    document.body.appendChild(heart);
+    setTimeout(() => heart.remove(), 8000);
+}, 400);
+
+// time lock
+function checkUnlock() {
+    const now = new Date();
+    if (now >= unlockTime) {
+        document.getElementById("locked").style.display = "none";
+        document.getElementById("final").style.display = "flex";
+    }
+}
+
+setInterval(checkUnlock, 1000);
+checkUnlock();
+
+// music
+const bgm = document.getElementById("bgm");
+let playing = false;
+
+function toggleMusic() {
+    if (!playing) {
+        bgm.play();
+        playing = true;
+    } else {
+        bgm.pause();
+        playing = false;
+    }
+}
+</script>
+
+</body>
+</html>
